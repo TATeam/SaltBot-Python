@@ -1,0 +1,29 @@
+  ___ ___                       ________     _________                    _____ .__                                 
+ /   |   \   ____  __  _  __    \_____  \    \_   ___ \   ____    ____  _/ ____\|__|   ____   __ __ _______   ____  
+/    ~    \ /  _ \ \ \/ \/ /     /  ____/    /    \  \/  /  _ \  /    \ \   __\ |  |  / ___\ |  |  \\_  __ \_/ __ \ 
+\    Y    /(  <_> ) \     /     /       \    \     \____(  <_> )|   |  \ |  |   |  | / /_/  >|  |  / |  | \/\  ___/ 
+ \___|_  /  \____/   \/\_/      \_______ \    \______  / \____/ |___|  / |__|   |__| \___  / |____/  |__|    \___  >
+       \/                               \/           \/              \/             /_____/                      \/ 
+	   
+
+Q: How do I choose the server?
+A: Go to the salt-bot file and on lines 44 and 45 change the server and port.
+
+Q: How do I set/add replies?
+A: Go to the salt-bot file and starting on line 62 type:
+    
+	Replies ['Message'    ] = "Bot reply."
+
+A: Another way is to do:
+    
+	if ircmsg.find ("Message") != -1:
+            sendmsg(channel, "Bot reply! \n")
+			
+Q: How do I add a command?
+A: Type this starting on line 203:
+    
+	if ircmsg.find ("!desc") != -1:
+            sendmsg(channel, "Bot reply. \n")
+**** Any other questions can be asked at irc.freenode.net/#salt-chat ****
+**** Remember to click enter on the lines I told you to go to before adding anything! ****
+	
