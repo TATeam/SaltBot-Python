@@ -1,0 +1,6 @@
+Name: Salt-Bot
+Version: 1.0.0
+Author: SaltFTWin
+Programming Language: Python
+Creation Date: 12/24/2015
+Recent Update: 12/24/2015
