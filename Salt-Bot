@@ -40,13 +40,13 @@ true      = 1                   # Boolean True
 # ==------------------------------------------------------------------------------------==
 botnick    = "Test"
 bufsize    = 2048
-channel    = "#channel"
-port       = 6667
-server     = "irc.test.ru"
-master     = "Owner Name"
-password   = "Bot Password"
-uname      = "Test"
-realname   = "Test"
+channel    = "#test"
+port       = 443
+server     = "192.16.64.144"
+master     = "test"
+password   = "test"
+uname      = "test"
+realname   = "test"
 # ==------------------------------------------------------------------------------------==
 ########  ######## ########  ##       #### ########  ######  
 ##     ## ##       ##     ## ##        ##  ##       ##    ## 
@@ -80,9 +80,9 @@ def ping():
 ##     ## ##    ## ##    ##  
 ##     ##  ######   ######   
 # ==------------------------------------------------------------------------------------==
-def sendmsg (chan, msg):
+def sendmsg (channel, msg):
     global ircsock
-    ircsock.send ("PRIVMSG "+ chan +" :"+ msg + "\n")
+    ircsock.send('PRIVMSG %s :%s\n' % (channel, msg))
 # ==------------------------------------------------------------------------------------==
       ##  #######  #### ##    ##     ######  ##     ##    ###    ##    ## ##    ## ######## ##       
       ## ##     ##  ##  ###   ##    ##    ## ##     ##   ## ##   ###   ## ###   ## ##       ##       
@@ -92,9 +92,9 @@ def sendmsg (chan, msg):
 ##    ## ##     ##  ##  ##   ###    ##    ## ##     ## ##     ## ##   ### ##   ### ##       ##       
  ######   #######  #### ##    ##     ######  ##     ## ##     ## ##    ## ##    ## ######## ######## 
 # ==------------------------------------------------------------------------------------==
-def JoinChan (chan):
+def JoinChan (channel):
     global ircsock
-    ircsock.send ("JOIN "+ chan +"\n")
+    ircsock.send ("JOIN "+ channel +"\n")
 # ==------------------------------------------------------------------------------------==
 ########  ########   #######   ######     ##     ## ######## ##       ##        #######  
 ##     ## ##     ## ##     ## ##    ##    ##     ## ##       ##       ##       ##     ## 
@@ -124,10 +124,9 @@ def Main():
 
     ircsock = socket.socket (socket.AF_INET, socket.SOCK_STREAM)
     ircsock.connect ((server, port))
-    ircsock.send ("USER " + uname + " 2 3 " + realname + "\n")
-    ircsock.send ("NICK "+ botnick + "\n")
-#   ircsock.send ("PRIVMSG NickServ :identify " + password + "\n")
-    JoinChan (channel)
+    ircsock.send ("Pass " + password +"\r\n")
+    ircsock.send ("NICK "+ botnick + "\r\n")
+    ircsock.send ("JOIN " + channel + "\r\n")
 
     while true:
 
@@ -288,4 +287,3 @@ def Main():
 # ==------------------------------------------------------------------------------------==
 Main()
 exit (zero)
-
