@@ -1,0 +1,4 @@
+If run.bat doesn't work try doing this.
+Open cmd.exe
+Type "cd C:\Path\To\Bot\Files\"
+Then "python ./salt-bot"
